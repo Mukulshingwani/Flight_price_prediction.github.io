@@ -1,0 +1,786 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Flight Price Prediction</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/styles.css">	
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	
+		<style>
+			.datetimeHere{
+				background: rgba(0,0,0,0);
+				border-color:rgba(0,0,0,0);
+				color: black;
+				font-weight: 400;
+			}
+			input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+				cursor: pointer;
+				border-radius: 4px;
+				margin-right: 2px;
+				opacity: 1;
+				filter: invert(0.8);
+				color: black;
+				font-weight: 400;
+			}
+			
+			.dropDownHere{
+				background: rgba(0,0,0,0);
+				border-color:white;
+				border-radius:15%;
+				color: black;
+				font-weight: 400;
+				width: 50%;
+				text-align:center;
+				font-size: 1.5em;
+			}
+		</style>
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Inner -->
+						<div class="inner">
+							<!-- <header>
+								<h1><a id="logo">Bonjour</a></h1>
+								<p></p>
+							</header> -->
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="card" style="background:#ef8376;border-color:rgba(0,0,0,0);border-radius:15%;position:relative;left:-80%;">
+										<div class="card-body">
+											<h5 class="card-title" style="color:white;">Departure Date</h5>
+											<!-- Departure -->
+											<input type="datetime-local" class="datetimeHere" name="Dep_Time" id="Dep_Time" required="required">
+										</div>
+									</div>
+								</div>
+								<br>
+								<br>
+								<br>
+								<div class="col-sm-6">
+									<div class="card" style="background:#ef8376;border-color:rgba(0,0,0,0);border-radius:15%;position:relative;left:70%;">
+										<div class="card-body">
+											<h5 class="card-title" style="color:white;">Arrival Date</h5>
+											<!-- Arrival -->
+											<input type="datetime-local" class="datetimeHere" name="Arrival_Time" id="Arrival_Time" required="required">
+										</div>
+									</div>
+								</div>
+							</div>
+							<br>
+							<br>
+							<br>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="card" style="background:#ef8376;border-color:rgba(0,0,0,0);border-radius:15%;position:relative;left:-20%;">
+
+										<div class="card-body">
+											<!-- Source -->
+											<h5 class="card-title" style="color:white;">Source</h5>
+											<select name="Source" class="dropDownHere"id="Source" required="required">
+												<option value="Delhi">Delhi</option>
+												<option value="Kolkata">Kolkata</option>
+												<option value="Mumbai">Mumbai</option>
+												<option value="Chennai">Chennai</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="card" style="background:#ef8376;border-color:rgba(0,0,0,0);border-radius:15%;position:relative;left:20%;">
+
+										<div class="card-body">
+											<h5 class="card-title" style="color:white;">Destination</h5>
+											<!-- Destination -->
+											<select name="Destination" class="dropDownHere" id="Destination" required="required">
+												<option value="Cochin">Cochin</option>
+												<option value="Delhi">Delhi</option>
+												<option value="New Delhi">New Delhi</option>
+												<option value="Hyderabad">Hyderabad</option>
+												<option value="Kolkata">Kolkata</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<br>
+							<br>
+							<br>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="card" style="background:#ef8376;border-color:rgba(0,0,0,0);border-radius:15%;">
+										<div class="card-body">
+											<h5 class="card-title" style="color:white">Stopage</h5>
+											<!-- Total Stops -->
+											<select name="stops" class="dropDownHere" id="total_stops" required="required">
+												<option value="0">Non-Stop</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="card" style="background:#ef8376;border-color:rgba(0,0,0,0);border-radius:15%;">
+										<div class="card-body">
+											<h5 class="card-title" style="color:white;">Select Airline</h5>
+											<!-- Airline -->
+											<select name="airline" class="dropDownHere" id="Airline" required="required">
+												<option value="Jet Airways">Jet Airways</option>
+												<option value="IndiGo">IndiGo</option>
+												<option value="Air India">Air India</option>
+												<option value="Multiple carriers">Multiple carriers</option>
+												<option value="SpiceJet">SpiceJet</option>
+												<option value="Vistara">Vistara</option>
+												<option value="Air Asia">Air Asia</option>
+												<option value="GoAir">GoAir</option>
+												<option value="Multiple carriers Premium economy">Multiple carriers Premium economy
+												</option>
+												<option value="Jet Airways Business">Jet Airways Business</option>
+												<option value="Vistara Premium economy">Vistara Premium economy</option>
+												<option value="Trujet">Trujet</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+							<br>
+							<br>
+							
+							<footer>
+								<!-- <a href="#banner" class="button circled scrolly" style="width:7em;height:7em;">Predict</a> -->
+								<a href="#banner"><button onclick="predict()"style="width:9em;height:9em;border-radius:100%;"> Predict</button></a>
+							</footer>
+						</div>
+
+						
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><h1>Flight Price Prediction</h1></li>
+							</ul>
+						</nav>
+
+				</div>
+
+			<!-- Banner -->
+				<section id="banner">
+					<header>
+						<h2>Here is your Flight Price Prediction.</h2>
+						<h2 id="predictedPrice"></h2>
+					</header>
+				</section>
+				<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.5.2/dist/tf.min.js"></script>
+
+				<script>
+					tf.loadLayersModel("dnn/model.json").then(function(model) {
+								window.model = model;
+								console.log("my model loaded");
+								});
+					function predict() {
+						var date_dep=document.getElementById('Dep_Time').value;
+						var a = date_dep.split('T');
+						var temp = a[0];
+						console.log(a[0].split('-'));
+						var b = a[0].split('-');
+						var journey_day=b[2];
+						var journey_month = b[1];
+
+						var c = a[1].split(':');
+						var dep_hour = c[0];
+						var dep_min = c[1];
+
+						var date_arrival = document.getElementById('Arrival_Time').value;
+
+						var a = date_arrival.split('T');
+						var b = a[1].split(':');
+						var arrival_hour = b[0];
+						var arrival_min = b[1];
+
+						var dur_hour = parseInt(arrival_hour) - parseInt(dep_hour);
+						var dur_min = parseInt(arrival_min) - parseInt(dep_min);
+
+						var total_stops = document.getElementById('total_stops').value;
+
+						var airline = document.getElementById('Airline').value;
+						if(airline=="Jet Airways"){
+							var jet_airways = 1;
+							var indigo = 0;
+							var air_india = 0;
+							var multiple_carriers = 0;
+							var spicejet = 0;
+							var vistara = 0;
+							var goair = 0;
+							var multiple_carriers_premium_economy = 0;
+							var jet_airways_business = 0;
+							var vistara_premium_economy = 0;
+							var trujet = 0;
+						}
+						else if (airline == 'IndiGo'){
+							var jet_airways = 0;
+							var indigo = 1;
+							var air_india = 0;
+							var multiple_carriers = 0;
+							var spicejet = 0;
+							var vistara = 0;
+							var goair = 0;
+							var multiple_carriers_premium_economy = 0;
+							var jet_airways_business = 0;
+							var vistara_premium_economy = 0;
+							var trujet = 0;
+						}
+						else if (airline == 'Air India'){
+							var jet_airways = 0;
+							var indigo = 0;
+							var air_india = 1;
+							var multiple_carriers = 0;
+							var spicejet = 0;
+							var vistara = 0;
+							var goair = 0;
+							var multiple_carriers_premium_economy = 0;
+							var jet_airways_business = 0;
+							var vistara_premium_economy = 0;
+							var trujet = 0;
+						}
+						else if (airline == 'Multiple carriers'){
+							var jet_airways = 0;
+							var indigo = 0;
+							var air_india = 0;
+							var multiple_carriers = 1;
+							var spicejet = 0;
+							var vistara = 0;
+							var goair = 0;
+							var multiple_carriers_premium_economy = 0;
+							var jet_airways_business = 0;
+							var vistara_premium_economy = 0;
+							var trujet = 0;
+						}
+						else if (airline == 'SpiceJet'){
+							var jet_airways = 0;
+							var indigo = 0;
+							var air_india = 0;
+							var multiple_carriers = 0;
+							var spicejet = 1;
+							var vistara = 0;
+							var goair = 0;
+							var multiple_carriers_premium_economy = 0;
+							var jet_airways_business = 0;
+							var vistara_premium_economy = 0;
+							var trujet = 0;
+						}
+						else if (airline == 'Vistara'){
+							var jet_airways = 0;
+							var indigo = 0;
+							var air_india = 0;
+							var multiple_carriers = 0;
+							var spicejet = 0;
+							var vistara = 1;
+							var goair = 0;
+							var multiple_carriers_premium_economy = 0;
+							var jet_airways_business = 0;
+							var vistara_premium_economy = 0;
+							var trujet = 0;
+						}
+						else if (airline == 'GoAir'){
+							var jet_airways = 0;
+							var indigo = 0;
+							var air_india = 0;
+							var multiple_carriers = 0;
+							var spicejet = 0;
+							var vistara = 0;
+							var goair = 1;
+							var multiple_carriers_premium_economy = 0;
+							var jet_airways_business = 0;
+							var vistara_premium_economy = 0;
+							var trujet = 0;
+						}
+						else if (airline == 'Multiple carriers Premium economy'){
+							var jet_airways = 0;
+							var indigo = 0;
+							var air_india = 0;
+							var multiple_carriers = 0;
+							var spicejet = 0;
+							var vistara = 0;
+							var goair = 0;
+							var multiple_carriers_premium_economy = 1;
+							var jet_airways_business = 0;
+							var vistara_premium_economy = 0;
+							var trujet = 0;
+						}
+						else if (airline == 'Jet Airways Business'){
+							var jet_airways = 0;
+							var indigo = 0;
+							var air_india = 0;
+							var multiple_carriers = 0;
+							var spicejet = 0;
+							var vistara = 0;
+							var goair = 0;
+							var multiple_carriers_premium_economy = 0;
+							var jet_airways_business = 1;
+							var vistara_premium_economy = 0;
+							var trujet = 0;
+						}
+						else if (airline == 'Vistara Premium economy'){
+							var jet_airways = 0;
+							var indigo = 0;
+							var air_india = 0;
+							var multiple_carriers = 0;
+							var spicejet = 0;
+							var vistara = 0;
+							var goair = 0;
+							var multiple_carriers_premium_economy = 0;
+							var jet_airways_business = 0;
+							var vistara_premium_economy = 1;
+							var trujet = 0;
+						}
+						else if (airline == 'Trujet'){
+							var jet_airways = 0;
+							var indigo = 0;
+							var air_india = 0;
+							var multiple_carriers = 0;
+							var spicejet = 0;
+							var vistara = 0;
+							var goair = 0;
+							var multiple_carriers_premium_economy = 0;
+							var jet_airways_business = 0;
+							var vistara_premium_economy = 0;
+							var trujet = 1;
+						}
+						else{
+							var jet_airways = 0;
+							var indigo = 0;
+							var air_india = 0;
+							var multiple_carriers = 0;
+							var spicejet = 0;
+							var vistara = 0;
+							var goair = 0;
+							var multiple_carriers_premium_economy = 0;
+							var jet_airways_business = 0;
+							var vistara_premium_economy = 0;
+							var trujet = 1;
+						}
+
+						source = document.getElementById('Source').value;
+						if(source=="Delhi"){
+							var s_delhi = 1;
+							var s_kolkata = 0;
+							var s_mumbai = 0;
+							var s_chennai = 0;
+						}
+						else if(source=="Kolkata"){
+							var s_delhi = 0;
+							var s_kolkata = 1;
+							var s_mumbai = 0;
+							var s_chennai = 0;
+						}
+						else if(source=="Mumbai"){
+							var s_delhi = 0;
+							var s_kolkata = 0;
+							var s_mumbai = 1;
+							var s_chennai = 0;
+						}
+						else if(source=="Chennai"){
+							var s_delhi = 0;
+							var s_kolkata = 0;
+							var s_mumbai = 0;
+							var s_chennai = 1;
+						}
+						else{
+							var s_delhi = 0;
+							var s_kolkata = 0;
+							var s_mumbai = 0;
+							var s_chennai = 0;
+						}
+
+						var destination = document.getElementById('Destination').value;
+
+						if(destination == 'Cochin'){
+							var d_cochin = 1;
+							var d_delhi = 0;
+							var d_new_delhi = 0;
+							var d_hyderabad = 0;
+							var d_kolkata = 0;
+						}
+						else if(destination == 'Delhi'){
+							var d_cochin = 0;
+							var d_delhi = 1;
+							var d_new_delhi = 0;
+							var d_hyderabad = 0;
+							var d_kolkata = 0;
+						}
+						else if(destination == 'New_Delhi'){
+							var d_cochin = 0;
+							var d_delhi = 0;
+							var d_new_delhi = 1;
+							var d_hyderabad = 0;
+							var d_kolkata = 0;
+						}
+						else if(destination == 'Hyderabad'){
+							var d_cochin = 0;
+							var d_delhi = 0;
+							var d_new_delhi = 0;
+							var d_hyderabad = 1;
+							var d_kolkata = 0;
+						}
+						else if(destination == 'Kolkata'){
+							var d_cochin = 0;
+							var d_delhi = 0;
+							var d_new_delhi = 0;
+							var d_hyderabad = 0;
+							var d_kolkata = 1;
+						}
+						else{
+							var d_cochin = 0;
+							var d_delhi = 0;
+							var d_new_delhi = 0;
+							var d_hyderabad = 0;
+							var d_kolkata = 0;
+						}
+
+						input = [parseInt(total_stops),parseInt(journey_day),parseInt(journey_month),parseInt(dep_hour),parseInt(dep_min),parseInt(arrival_hour),parseInt(arrival_min),parseInt(dur_hour),parseInt(dur_min),parseInt(air_india),parseInt(goair),parseInt(indigo),parseInt(jet_airways),parseInt(jet_airways_business),parseInt(multiple_carriers),parseInt(multiple_carriers_premium_economy),parseInt(spicejet),parseInt(trujet),parseInt(vistara),parseInt(vistara_premium_economy),parseInt(s_chennai),parseInt(s_delhi),parseInt(s_kolkata),parseInt(s_mumbai),parseInt(d_cochin),parseInt(d_delhi),parseInt(d_hyderabad),parseInt(d_kolkata),parseInt(d_new_delhi)]
+						window.model.predict([tf.tensor(input).reshape([1,29])]).array().then(function(scores){
+									scores = scores[0];
+									//predicted = scores.indexOf(Math.max(...scores));
+									// $('#number').html(predicted);
+									//console.log(predicted);
+									console.log(scores[0]);
+									document.getElementById('predictedPrice').innerHTML=scores[0];
+								});
+					}
+					
+				</script>
+
+
+			<!-- Carousel -->
+				<!-- <section class="carousel">
+					<div class="reel">
+
+						<article>
+							<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+							<header>
+								<h3><a href="#">Pulvinar sagittis congue</a></h3>
+							</header>
+							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+						</article>
+
+						<article>
+							<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+							<header>
+								<h3><a href="#">Fermentum sagittis proin</a></h3>
+							</header>
+							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+						</article>
+
+						<article>
+							<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+							<header>
+								<h3><a href="#">Sed quis rhoncus placerat</a></h3>
+							</header>
+							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+						</article>
+
+						<article>
+							<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+							<header>
+								<h3><a href="#">Ultrices urna sit lobortis</a></h3>
+							</header>
+							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+						</article>
+
+						<article>
+							<a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
+							<header>
+								<h3><a href="#">Varius magnis sollicitudin</a></h3>
+							</header>
+							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+						</article>
+
+						<article>
+							<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+							<header>
+								<h3><a href="#">Pulvinar sagittis congue</a></h3>
+							</header>
+							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+						</article>
+
+						<article>
+							<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+							<header>
+								<h3><a href="#">Fermentum sagittis proin</a></h3>
+							</header>
+							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+						</article>
+
+						<article>
+							<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+							<header>
+								<h3><a href="#">Sed quis rhoncus placerat</a></h3>
+							</header>
+							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+						</article>
+
+						<article>
+							<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+							<header>
+								<h3><a href="#">Ultrices urna sit lobortis</a></h3>
+							</header>
+							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+						</article>
+
+						<article>
+							<a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
+							<header>
+								<h3><a href="#">Varius magnis sollicitudin</a></h3>
+							</header>
+							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+						</article>
+
+					</div>
+				</section> -->
+
+			<!-- Main -->
+				<!-- <div class="wrapper style2">
+
+					<article id="main" class="container special">
+						<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
+						<header>
+							<h2><a href="#">Sed massa imperdiet magnis</a></h2>
+							<p>
+								Sociis aenean eu aenean mollis mollis facilisis primis ornare penatibus aenean. Cursus ac enim
+								pulvinar curabitur morbi convallis. Lectus malesuada sed fermentum dolore amet.
+							</p>
+						</header>
+						<p>
+							Commodo id natoque malesuada sollicitudin elit suscipit. Curae suspendisse mauris posuere accumsan massa
+							posuere lacus convallis tellus interdum. Amet nullam fringilla nibh nulla convallis ut venenatis purus
+							sit arcu sociis. Nunc fermentum adipiscing tempor cursus nascetur adipiscing adipiscing. Primis aliquam
+							mus lacinia lobortis phasellus suscipit. Fermentum lobortis non tristique ante proin sociis accumsan
+							lobortis. Auctor etiam porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum
+							consequat integer interdum integer purus sapien. Nibh eleifend nulla nascetur pharetra commodo mi augue
+							interdum tellus. Ornare cursus augue feugiat sodales velit lorem. Semper elementum ullamcorper lacinia
+							natoque aenean scelerisque.
+						</p>
+						<footer>
+							<a href="#" class="button">Continue Reading</a>
+						</footer>
+					</article>
+
+				</div> -->
+
+			<!-- Features -->
+				<!-- <div class="wrapper style1">
+
+					<section id="features" class="container special">
+						<header>
+							<h2>Morbi ullamcorper et varius leo lacus</h2>
+							<p>Ipsum volutpat consectetur orci metus consequat imperdiet duis integer semper magna.</p>
+						</header>
+						<div class="row">
+							<article class="col-4 col-12-mobile special">
+								<a href="#" class="image featured"><img src="images/pic07.jpg" alt="" /></a>
+								<header>
+									<h3><a href="#">Gravida aliquam penatibus</a></h3>
+								</header>
+								<p>
+									Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor etiam
+									porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer interdum.
+								</p>
+							</article>
+							<article class="col-4 col-12-mobile special">
+								<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+								<header>
+									<h3><a href="#">Sed quis rhoncus placerat</a></h3>
+								</header>
+								<p>
+									Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor etiam
+									porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer interdum.
+								</p>
+							</article>
+							<article class="col-4 col-12-mobile special">
+								<a href="#" class="image featured"><img src="images/pic09.jpg" alt="" /></a>
+								<header>
+									<h3><a href="#">Magna laoreet et aliquam</a></h3>
+								</header>
+								<p>
+									Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor etiam
+									porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer interdum.
+								</p>
+							</article>
+						</div>
+					</section>
+
+				</div> -->
+
+			<!-- Footer -->
+				<!-- <div id="footer">
+					<div class="container">
+						<div class="row"> -->
+
+							<!-- Tweets -->
+								<!-- <section class="col-4 col-12-mobile">
+									<header>
+										<h2 class="icon brands fa-twitter circled"><span class="label">Tweets</span></h2>
+									</header>
+									<ul class="divided">
+										<li>
+											<article class="tweet">
+												Amet nullam fringilla nibh nulla convallis tique ante sociis accumsan.
+												<span class="timestamp">5 minutes ago</span>
+											</article>
+										</li>
+										<li>
+											<article class="tweet">
+												Hendrerit rutrum quisque.
+												<span class="timestamp">30 minutes ago</span>
+											</article>
+										</li>
+										<li>
+											<article class="tweet">
+												Curabitur donec nulla massa laoreet nibh. Lorem praesent montes.
+												<span class="timestamp">3 hours ago</span>
+											</article>
+										</li>
+										<li>
+											<article class="tweet">
+												Lacus natoque cras rhoncus curae dignissim ultricies. Convallis orci aliquet.
+												<span class="timestamp">5 hours ago</span>
+											</article>
+										</li>
+									</ul>
+								</section> -->
+
+							<!-- Posts -->
+								<!-- <section class="col-4 col-12-mobile">
+									<header>
+										<h2 class="icon solid fa-file circled"><span class="label">Posts</span></h2>
+									</header>
+									<ul class="divided">
+										<li>
+											<article class="post stub">
+												<header>
+													<h3><a href="#">Nisl fermentum integer</a></h3>
+												</header>
+												<span class="timestamp">3 hours ago</span>
+											</article>
+										</li>
+										<li>
+											<article class="post stub">
+												<header>
+													<h3><a href="#">Phasellus portitor lorem</a></h3>
+												</header>
+												<span class="timestamp">6 hours ago</span>
+											</article>
+										</li>
+										<li>
+											<article class="post stub">
+												<header>
+													<h3><a href="#">Magna tempus consequat</a></h3>
+												</header>
+												<span class="timestamp">Yesterday</span>
+											</article>
+										</li>
+										<li>
+											<article class="post stub">
+												<header>
+													<h3><a href="#">Feugiat lorem ipsum</a></h3>
+												</header>
+												<span class="timestamp">2 days ago</span>
+											</article>
+										</li>
+									</ul>
+								</section> -->
+
+							<!-- Photos -->
+								<!-- <section class="col-4 col-12-mobile">
+									<header>
+										<h2 class="icon solid fa-camera circled"><span class="label">Photos</span></h2>
+									</header>
+									<div class="row gtr-25">
+										<div class="col-6">
+											<a href="#" class="image fit"><img src="images/pic10.jpg" alt="" /></a>
+										</div>
+										<div class="col-6">
+											<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
+										</div>
+										<div class="col-6">
+											<a href="#" class="image fit"><img src="images/pic12.jpg" alt="" /></a>
+										</div>
+										<div class="col-6">
+											<a href="#" class="image fit"><img src="images/pic13.jpg" alt="" /></a>
+										</div>
+										<div class="col-6">
+											<a href="#" class="image fit"><img src="images/pic14.jpg" alt="" /></a>
+										</div>
+										<div class="col-6">
+											<a href="#" class="image fit"><img src="images/pic15.jpg" alt="" /></a>
+										</div>
+									</div>
+								</section> -->
+
+						<!-- </div>
+						<hr /> -->
+						<!-- <div class="row">
+							<div class="col-12"> -->
+
+								<!-- Contact -->
+									<!-- <section class="contact">
+										<header>
+											<h3>Nisl turpis nascetur interdum?</h3>
+										</header>
+										<p>Urna nisl non quis interdum mus ornare ridiculus egestas ridiculus lobortis vivamus tempor aliquet.</p>
+										<ul class="icons">
+											<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+											<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+											<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+											<li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
+											<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+											<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
+										</ul>
+									</section> -->
+
+								<!-- Copyright -->
+									<!-- <div class="copyright">
+										<ul class="menu">
+											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div> -->
+
+							<!-- </div>
+
+						</div>
+					</div>
+				</div> -->
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
